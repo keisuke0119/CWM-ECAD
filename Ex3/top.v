@@ -36,15 +36,22 @@ module counter(
 	if (rst) begin 
 		counter_out <=0;
 	end
-
 		else begin
-			if (direction) begin
-			counter_out <= counter_out +1;
+			if (enable==0) begin
+			counter_out <=counter_out;
 			end
+		   else begin
+			  if (direction) begin
+			  counter_out <= counter_out+1;
+			  end
 		
-		else begin
-			counter_out <= counter_out -1;
-			end
+		      else begin
+			   counter_out <= counter_out-1;
+			   end
+		   end
+		end
 	
+
+	end
       
 endmodule
